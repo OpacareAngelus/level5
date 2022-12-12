@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTopPart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/vwTop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="?attr/colorPrimary"
+            app:layout_constraintBottom_toTopOf="@id/glMid"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnAddPhoto"
+            android:layout_width="@dimen/grey_circle"
+            android:layout_height="@dimen/grey_circle"
+            android:layout_marginStart="@dimen/margin_large"
+            android:background="?attr/colorOnSecondary"
+            android:foreground="@drawable/ic_camera_centred"
+            app:layout_constraintBottom_toBottomOf="@+id/ivUserPhoto"
+            app:layout_constraintStart_toEndOf="@+id/ivUserPhoto"
+            app:layout_constraintTop_toTopOf="@+id/ivUserPhoto" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnArrow"
+            android:layout_width="@dimen/back_arrow_size"
+            android:layout_height="@dimen/back_arrow_size"
+            android:padding="@dimen/padding_back_arrow"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAddContact"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvAddContact" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/no_color"
+            android:text="@string/add_contact"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/large_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/ivUserPhoto"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivUserPhoto"
+            android:layout_width="@dimen/user_photo_size"
+            android:layout_height="@dimen/user_photo_size"
+            android:backgroundTint="@drawable/btn_rect"
+            android:contentDescription="@string/user_photo"
+            android:foreground="@drawable/shaper_color_prime"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy_user_photo"
+            app:layout_constraintBottom_toBottomOf="@+id/vwTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddContact" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glMid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30" />
+
+        <ScrollView
+            android:id="@+id/svMain"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/margin_large"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:isScrollContainer="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/glMid">
+
+            <LinearLayout
+                android:id="@+id/llContacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_mid"
+                android:layout_marginEnd="@dimen/margin_mid"
+                android:orientation="vertical"
+                android:verticalScrollbarPosition="right">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_username"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilCareer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etCareer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_career"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_email"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_phone"
+                        android:inputType="phone"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_address"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ilDataOfBirth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDataOfBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/background"
+                        android:hint="@string/tie_date_of_birth"
+                        android:inputType="date"
+                        android:textColorHint="?attr/colorOnSecondary"
+                        android:textSize="@dimen/large_text_size" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSaveContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:backgroundTint="?attr/colorSecondary"
+                    android:text="@string/save"
+                    android:textColor="?attr/colorOnPrimary" />
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

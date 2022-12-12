@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MyProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:transitionName="courseImage">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glGuidelineCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <View
+        android:id="@+id/vwTopWindow"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/glGuidelineCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginTop="@dimen/margin_mid"
+        android:text="@string/settings"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/margin_large"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowMyProfileUserData"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:constraint_referenced_ids="ivMyProfileUserPhoto, tvMyProfileName, tvMyProfileCareer, tvMyProfileAddress"
+        app:flow_verticalStyle="packed"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toTopOf="@+id/glGuidelineCenter"
+        app:layout_constraintEnd_toEndOf="@+id/vwTopWindow"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileUserPhoto"
+        android:layout_width="@dimen/user_photo_size"
+        android:layout_height="@dimen/user_photo_size"
+        android:contentDescription="@string/user_photo"
+        android:foreground="@drawable/shaper"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dummy_user_photo"
+        app:layout_constraintEnd_toEndOf="@+id/vwTopWindow"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@id/vwTopWindow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/large_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/vwTopWindow"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toBottomOf="@id/ivMyProfileUserPhoto" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileCareer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/career"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/mid_text_size"
+        app:layout_constraintEnd_toEndOf="@+id/vwTopWindow"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toTopOf="@+id/vwTopWindow" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMyProfileAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/address"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/mid_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/glGuidelineCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/vwTopWindow"
+        app:layout_constraintTop_toBottomOf="@+id/tvMyProfileCareer" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnViewContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:backgroundTint="?attr/colorSecondary"
+        android:minHeight="@dimen/minHeight_land_55dp"
+        android:text="@string/view_contacts"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/large_text_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fwMyProfileLinksToAnotherSN"
+        app:layout_constraintTop_toBottomOf="@id/fwMyProfileLinksToAnotherSN" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/min_btn_height"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:background="@color/no_color"
+        android:foreground="@drawable/frame_rounding_color_primary_variant"
+        android:minWidth="@dimen/minWidth_land"
+        android:text="@string/edit_profile"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/mid_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fwMyProfileLinksToAnotherSN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fwMyProfileLinksToAnotherSN" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/fwMyProfileLinksToAnotherSN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivMyProfileFacebook, ivMyProfileLinkedIn"
+        app:flow_horizontalGap="@dimen/margin_extra_large"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_wrapMode="chain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glGuidelineCenter" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/facebook_logo"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivMyProfileLinkedIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/linkedin_logo"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

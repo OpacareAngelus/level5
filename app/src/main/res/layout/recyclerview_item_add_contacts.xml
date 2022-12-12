@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/containerItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_mid"
+    android:background="@drawable/frame_rounded"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivRecyclerItemUserPhoto"
+        android:layout_width="@dimen/photo_size_in_recycle_view"
+        android:layout_height="@dimen/photo_size_in_recycle_view"
+        android:layout_marginStart="@dimen/margin_extra_small"
+        android:layout_marginTop="@dimen/margin_extra_small"
+        android:layout_marginBottom="@dimen/margin_extra_small"
+        android:foreground="@drawable/shaper_color_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:text="@string/name"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="@dimen/tv_name_ts"
+        app:layout_constraintBottom_toTopOf="@id/tvCareer"
+        app:layout_constraintStart_toEndOf="@+id/ivRecyclerItemUserPhoto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCareer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:text="@string/career"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/tv_career_ts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivRecyclerItemUserPhoto"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHomeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/home_address"
+        android:visibility="invisible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btnAddContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_end_trash_can"
+        android:background="@drawable/ic_add_contact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

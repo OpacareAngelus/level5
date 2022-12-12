@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FragmentSignUpExtended"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context="fragments.fragmentSignUpExt.FragmentSignUpExt">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glSignUpExtended"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flowSignUpExtendedUserPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivSignUpUserPhoto, ivSignUpAddPhoto"
+        app:flow_horizontalGap="@dimen/margin_extra_large"
+        app:flow_horizontalStyle="spread_inside"
+        app:flow_wrapMode="chain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glSignUpExtended" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSignUpUserPhoto"
+        android:layout_width="@dimen/sign_in_photo_size"
+        android:layout_height="@dimen/sign_in_photo_size"
+        android:src="@drawable/ic_no_photo"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSignUpAddPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_photo"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSignUpTextUnderPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/your_profile_data"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/largest_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flowSignUpExtendedUserPhoto" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSignUpTextUnderPhoto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_small"
+        android:text="@string/fill_out_the_profile_and_go_to_the_application"
+        android:textColor="?attr/colorOnSecondary"
+        android:textSize="@dimen/small_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUpTextUnderPhoto" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ilSignUpUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:hint="@string/sign_up_extended_user_name"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:textSize="@dimen/large_text_size"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:hintTextColor="?attr/colorOnSecondary"
+        app:layout_constraintTop_toBottomOf="@id/tvSignUpTextUnderPhoto2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/no_color"
+            android:textColor="?attr/colorOnPrimary" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ilSignUpUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:textColorHint="?attr/colorOnSecondary"
+        android:textSize="@dimen/large_text_size"
+        app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
+        app:hintTextColor="?attr/colorOnSecondary"
+        app:layout_constraintTop_toBottomOf="@id/ilSignUpUserName"
+        tools:layout_editor_absoluteX="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSignUpUserPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/no_color"
+            android:hint="@string/sign_up_extended_mobile_phone"
+            android:inputType="phone"
+            android:textColor="?attr/colorOnPrimary"
+            android:textColorHint="?attr/colorOnSecondary" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignUpCancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/min_btn_height"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:background="@drawable/frame_rounding_color_on_prime"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/mid_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUpForward"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignUpForward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_mid"
+        android:layout_marginEnd="@dimen/margin_mid"
+        android:layout_marginBottom="@dimen/margin_mid"
+        android:backgroundTint="?attr/colorSecondary"
+        android:textColor="?attr/colorOnPrimary"
+        android:text="@string/sign_in_extended_forward"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentMain">
+
+    <fragment
+        android:id="@+id/fragmentMain"
+        android:name="fragments.FragmentMain"
+        android:label="main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentContactProfile"
+            app:destination="@id/fragmentContactProfile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <argument
+            android:name="user"
+            app:argType="data.model.User" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentEditProfile"
+            app:destination="@id/fragmentEditProfile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_fragmentMain_to_fragmentAddContacts"
+            app:destination="@id/fragmentAddContacts" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentContactProfile"
+        android:name="fragments.fragmentContactProfile.FragmentContactProfile"
+        android:label="fragment_contact_profile"
+        tools:layout="@layout/fragment_contact_profile">
+        <action
+            android:id="@+id/action_fragmentContactProfile_to_fragmentMain"
+            app:destination="@id/fragmentMain" />
+        <argument
+            android:name="user"
+            app:argType="data.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentEditProfile"
+        android:name="fragments.fragmentEditProfile.FragmentEditProfile"
+        android:label="FragmentEditProfile">
+        <action
+            android:id="@+id/action_fragmentEditProfile_to_fragmentMain"
+            app:destination="@id/fragmentMain"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddContacts"
+        android:name="fragments.fragmentAddContacts.FragmentAddContacts"
+        android:label="FragmentAddContacts">
+        <action
+            android:id="@+id/action_fragmentAddContacts_to_fragmentUnattachedContactProfile"
+            app:destination="@id/fragmentUnattachedContactProfile" />
+        <argument
+            android:name="user"
+            app:argType="data.model.User"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUnattachedContactProfile"
+        android:name="fragments.FragmentUnattachedContactProfile"
+        android:label="FragmentUnattachedContactProfile" >
+        <argument
+            android:name="user"
+            app:argType="data.model.User" />
+    </fragment>
+
+</navigation>

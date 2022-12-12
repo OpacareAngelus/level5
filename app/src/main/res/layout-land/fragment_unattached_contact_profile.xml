@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contactProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:tag="ContactProfile"
+    tools:context="fragments.fragmentContactProfile.FragmentContactProfile">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTopPart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_Profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@string/profile"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/margin_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/fwUserData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="ivAddContactPhoto, tvName, tvCareer, tvUserAddress"
+            app:flow_verticalGap="@dimen/margin_small"
+            app:flow_verticalStyle="packed"
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_Profile" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAddContactPhoto"
+            android:layout_width="@dimen/user_photo_size"
+            android:layout_height="@dimen/user_photo_size"
+            android:foreground="@drawable/shaper_color_prime"
+            android:src="@drawable/dummy_user_photo" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnArrow"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="@dimen/padding_back_arrow"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/large_text_size"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCareer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/career"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/small_text_size"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textColor="?attr/colorOnSecondary"
+            android:textSize="@dimen/small_text_size"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBottomPart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clTopPart">
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/fwLinksToAnotherSN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="ivFacebook, ivLinkedIn"
+            app:flow_horizontalGap="@dimen/margin_large"
+            app:flow_horizontalStyle="spread_inside"
+            app:flow_wrapMode="chain"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_facebook_logo"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLinkedIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_linkedin_logo"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnEditProfile"
+            android:layout_width="@dimen/minWidth_land"
+            android:layout_height="@dimen/min_btn_height"
+            android:layout_marginBottom="@dimen/margin_mid"
+            android:background="@color/no_color"
+            android:foreground="@drawable/frame_rounding_color_primary_variant"
+            android:text="@string/message"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/mid_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/fwLinksToAnotherSN"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fwLinksToAnotherSN" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSendMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_mid"
+            android:backgroundTint="?attr/colorSecondary"
+            android:text="@string/add_to_my_contacts"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/large_text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fwLinksToAnotherSN"
+            app:layout_constraintTop_toBottomOf="@+id/fwLinksToAnotherSN" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
