@@ -31,7 +31,7 @@ class FragmentEditProfile : BaseFragment<FragmentEditProfileBinding>(
             if (result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
                 selectedImageUri = data?.data as Uri
-                binding.ivUserPhoto.setImageURI(data?.data)
+                binding.ivUserPhoto.setImageURI(data.data)
             }
         }
 
@@ -50,13 +50,12 @@ class FragmentEditProfile : BaseFragment<FragmentEditProfileBinding>(
                 findNavController().popBackStack()
             }
             btnSaveContact.setOnClickListener {
-                /*TODO*/
                 val call = EditProfileRequest(
                     etUsername.text.toString(),
                     etPhone.text.toString(),
                     etAddress.text.toString(),
                     etCareer.text.toString(),
-                    etDataOfBirth.text.toString(),
+                    etDataOfBirth.text.toString()
                 )
                 editProfileViewModel.editProfileRequest(
                     sharedPreferences.getString(getString(R.string.id), "").toString(),

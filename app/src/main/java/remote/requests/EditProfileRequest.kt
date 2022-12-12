@@ -5,5 +5,5 @@ data class EditProfileRequest(
     val phone: String? = null,
     val address: String? = null,
     val career: String? = null,
-    val birthday: String? = null,
+    val birthday: String? = null
 )
