@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +21,7 @@ class FragmentUserProfileViewModel(private val apl: Application) : AndroidViewMo
     private val compositeDisposable = CompositeDisposable()
 
     fun requestUserData(userId: String, accessToken: String) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             compositeDisposable.add(
                 (apl as ServiceAPI).requestAPI.getProfile(
                     userId, accessToken

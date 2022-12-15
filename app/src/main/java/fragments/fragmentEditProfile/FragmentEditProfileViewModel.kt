@@ -4,8 +4,10 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.launch
 import remote.ServiceAPI
 import remote.requests.EditProfileRequest
 import remote.responses.ProfileResponse
@@ -18,13 +20,15 @@ class FragmentEditProfileViewModel(private val apl: Application) : AndroidViewMo
     private val compositeDisposable = CompositeDisposable()
 
     fun editProfileRequest(userId: String, accessToken: String, call: EditProfileRequest) {
-        compositeDisposable.add(
-            (apl as ServiceAPI).requestAPI.editProfile(userId, accessToken, call)
-                .subscribeOn(Schedulers.io()).subscribe({
-                    _editProfileResponse.postValue(it)
-                }, {
+        viewModelScope.launch {
+            compositeDisposable.add(
+                (apl as ServiceAPI).requestAPI.editProfile(userId, accessToken, call)
+                    .subscribeOn(Schedulers.io()).subscribe({
+                        _editProfileResponse.postValue(it)
+                    }, {
 
-                })
-        )
+                    })
+            )
+        }
     }
 }

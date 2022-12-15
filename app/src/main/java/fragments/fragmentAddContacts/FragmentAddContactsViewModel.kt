@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import data.model.User
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -26,7 +27,7 @@ class FragmentAddContactsViewModel(private val apl: Application) : AndroidViewMo
     private val compositeDisposable = CompositeDisposable()
 
     fun requestUsersList(accessToken: String) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             compositeDisposable.add(
                 (apl as ServiceAPI).requestAPI.getUsers(
                     accessToken

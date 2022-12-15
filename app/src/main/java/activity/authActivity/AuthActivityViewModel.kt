@@ -4,10 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import remote.ServiceAPI
 import remote.requests.LoginRequest
@@ -24,20 +23,20 @@ class AuthActivityViewModel(private val apl: Application) : AndroidViewModel(apl
     private val compositeDisposable = CompositeDisposable()
 
     fun loginRequest(email: String, password: String) {
-        val call = LoginRequest(
-            email,
-            password
-        )
-        compositeDisposable.add(
-            (apl as ServiceAPI).requestAPI.login(call).subscribeOn(Schedulers.io())
-                .subscribe({
-                    CoroutineScope(Dispatchers.Main).launch {
+        viewModelScope.launch {
+            val call = LoginRequest(
+                email,
+                password
+            )
+            compositeDisposable.add(
+                (apl as ServiceAPI).requestAPI.login(call).subscribeOn(Schedulers.io())
+                    .subscribe({
                         _errorMessage.postValue(it.code.toString())
                         _authorizeResponse.postValue(it)
-                    }
-                }, {
-                    _errorMessage.postValue(it.message)
-                })
-        )
+                    }, {
+                        _errorMessage.postValue(it.message)
+                    })
+            )
+        }
     }
 }
