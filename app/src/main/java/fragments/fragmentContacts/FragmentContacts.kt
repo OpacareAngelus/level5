@@ -35,7 +35,6 @@ class FragmentContacts :
         RecyclerAdapterUserContacts(contactsListController = this, selector = this)
     }
 
-    private val compositeDisposable = CompositeDisposable()
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

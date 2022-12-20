@@ -54,12 +54,12 @@ class FragmentUserProfile : BaseFragment<FragmentUserProfileBinding>(
     }
 
     private fun setObserver() {
-        userProfileViewModel.profileResponse.observe(viewLifecycleOwner){
+        userProfileViewModel.userData.observe(viewLifecycleOwner){
             with(binding){
-            tvMyProfileName.text = it.data.user.name
-            tvMyProfileCareer.text = it.data.user.career
-            tvMyProfileAddress.text = it.data.user.address
-            ivMyProfileUserPhoto.addImage(it.data.user.image)
+            tvMyProfileName.text = it.name
+            tvMyProfileCareer.text = it.career
+            tvMyProfileAddress.text = it.address
+            ivMyProfileUserPhoto.addImage(it.image)
             }
         }
     }

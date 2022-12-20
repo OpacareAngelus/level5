@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentContactProfile"
-        android:name="fragments.fragmentContactProfile.FragmentContactProfile"
+        android:name="fragments.FragmentContactProfile"
         android:label="fragment_contact_profile"
         tools:layout="@layout/fragment_contact_profile">
         <action

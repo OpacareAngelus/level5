@@ -8,8 +8,6 @@ import androidx.lifecycle.viewModelScope
 import data.model.User
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import remote.ServiceAPI
 

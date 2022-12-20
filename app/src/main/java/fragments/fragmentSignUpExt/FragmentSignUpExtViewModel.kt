@@ -7,8 +7,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import remote.ServiceAPI
 import remote.requests.RegisterUserRequest
@@ -32,7 +30,6 @@ class FragmentSignUpExtViewModel(private val apl: Application) : AndroidViewMode
     ) {
         val call = RegisterUserRequest(email, password, name, phone)
         viewModelScope.launch {
-            CoroutineScope(Dispatchers.Main).launch {
                 compositeDisposable.add(
                     (apl as ServiceAPI).requestAPI.registerUser(call)
                         .subscribeOn(Schedulers.io()).subscribe({
@@ -42,7 +39,6 @@ class FragmentSignUpExtViewModel(private val apl: Application) : AndroidViewMode
                             _code.postValue(it.message)
                         })
                 )
-            }
         }
     }
 
