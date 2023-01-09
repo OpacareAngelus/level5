@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragmentMain"
-        android:name="fragments.FragmentMain"
+        android:name="activity.mainActivity.fragments.FragmentMain"
         android:label="main"
         tools:layout="@layout/fragment_main">
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentContactProfile"
-        android:name="fragments.FragmentContactProfile"
+        android:name="activity.mainActivity.fragments.fragmentContacts.fragmentContactProfile.FragmentContactProfile"
         android:label="fragment_contact_profile"
         tools:layout="@layout/fragment_contact_profile">
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentEditProfile"
-        android:name="fragments.fragmentEditProfile.FragmentEditProfile"
+        android:name="activity.mainActivity.fragments.fragmentEditProfile.FragmentEditProfile"
         android:label="FragmentEditProfile">
         <action
             android:id="@+id/action_fragmentEditProfile_to_fragmentMain"
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentAddContacts"
-        android:name="fragments.fragmentAddContacts.FragmentAddContacts"
+        android:name="activity.mainActivity.fragments.fragmentContacts.fragmentAddContacts.FragmentAddContacts"
         android:label="FragmentAddContacts">
         <action
             android:id="@+id/action_fragmentAddContacts_to_fragmentUnattachedContactProfile"
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentUnattachedContactProfile"
-        android:name="fragments.FragmentUnattachedContactProfile"
+        android:name="activity.mainActivity.fragments.fragmentContacts.fragmentAddContacts.fragmentUnattachedContactProfile.FragmentUnattachedContactProfile"
         android:label="FragmentUnattachedContactProfile" >
         <argument
             android:name="user"

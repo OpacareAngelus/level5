@@ -5,7 +5,7 @@
     android:id="@+id/clFragmentContacts"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.fragmentContacts.FragmentContacts">
+    tools:context="activity.mainActivity.fragments.fragmentContacts.FragmentContacts">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clTopBar"

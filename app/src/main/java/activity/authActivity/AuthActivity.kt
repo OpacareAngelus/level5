@@ -1,6 +1,6 @@
 package activity.authActivity
 
-import activity.MainActivity
+import activity.mainActivity.MainActivity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.level5.R
 import com.example.level5.databinding.ActivityAuthBinding
-import fragments.fragmentSignUpExt.FragmentSignUpExt
+import activity.authActivity.fragments.fragmentSignUpExt.FragmentSignUpExt
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary"
-    tools:context="fragments.fragmentSignUpExt.FragmentSignUpExt">
+    tools:context="activity.authActivity.fragments.fragmentSignUpExt.FragmentSignUpExt">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/glSignUpExtended"

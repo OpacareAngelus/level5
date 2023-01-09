@@ -4,7 +4,7 @@
     package="com.example.level5">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="remote.ServiceAPI"
+        android:name="activity.mainActivity.remote.ServiceAPI"
         android:allowBackup="true"
         android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +17,7 @@
         android:theme="@style/Theme.Level5"
         tools:targetApi="31">
         <activity
-            android:name="activity.MainActivity"
+            android:name="activity.mainActivity.MainActivity"
             android:exported="false" />
         <activity
             android:name="activity.authActivity.AuthActivity"

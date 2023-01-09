@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="ContactProfile"
-    tools:context="fragments.FragmentContactProfile">
+    tools:context="activity.mainActivity.fragments.fragmentContacts.fragmentContactProfile.FragmentContactProfile">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clTopPart"

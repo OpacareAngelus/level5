@@ -8,9 +8,9 @@ import androidx.lifecycle.viewModelScope
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
-import remote.ServiceAPI
-import remote.requests.LoginRequest
-import remote.responses.AuthorizeResponse
+import activity.mainActivity.remote.ServiceAPI
+import activity.mainActivity.remote.requests.LoginRequest
+import activity.mainActivity.remote.responses.AuthorizeResponse
 
 class AuthActivityViewModel(private val apl: Application) : AndroidViewModel(apl) {
 
