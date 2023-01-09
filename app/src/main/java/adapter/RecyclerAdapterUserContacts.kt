@@ -63,8 +63,6 @@ class RecyclerAdapterUserContacts(
 
     /**Method back to list of contacts deleted contact if user push "Cancel" on the Snackbar.*/
     private fun undoUserDeletion(user: User, delMessage: Snackbar) {
-        println(user.id)
-        println(user.name)
         delMessage.setAction(R.string.cancel) {
             contactsListController.onContactAdd(user)
         }
@@ -104,7 +102,7 @@ class RecyclerAdapterUserContacts(
         ) {
             cbSelected.isChecked = tracker?.isSelected(absoluteAdapterPosition.toLong()) == true
             cbSelected.isInvisible = tracker?.isSelected(absoluteAdapterPosition.toLong()) != true
-            btnTrashCan.isInvisible = tracker?.isSelected(absoluteAdapterPosition.toLong()) != true
+            btnTrashCan.isInvisible = tracker?.isSelected(absoluteAdapterPosition.toLong()) == true
 
             if (tracker!!.isSelected(absoluteAdapterPosition.toLong())) {
                 selector.changeVisibility(true)
