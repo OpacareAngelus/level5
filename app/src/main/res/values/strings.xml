@@ -41,8 +41,11 @@
     <string name="cancel">Cancel</string>
     <string name="deletedUser">"${user.name} has deleted."</string>
     <string name="home_address">home address</string>
-    <string name="request_success">200</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_contacts">My Contacts</string>
+    <string name="has_been_deleted">%s has been deleted.</string>
 
+    <string name="request_success">200</string>
     <string name="bad_request">HTTP 400 Bad Request</string>
     <string name="user_unauthorized">HTTP 401 Unauthorized</string>
     <string name="tag_add_contact">AddContact</string>

@@ -53,4 +53,7 @@
     <string name="sign_up_extended_user_name">Ім\'я користувача</string>
     <string name="sign_up_extended_mobile_phone">Номер телефону</string>
     <string name="sign_in_extended_forward">Вперед</string>
+    <string name="my_profile">Мій профіль</string>
+    <string name="my_contacts">Мої контакти</string>
+    <string name="has_been_deleted">%s видалено.</string>
 </resources>

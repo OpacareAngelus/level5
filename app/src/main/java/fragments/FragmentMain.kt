@@ -4,6 +4,7 @@ import adapter.PagerAdapter
 import android.os.Bundle
 import android.view.View
 import base.BaseFragment
+import com.example.level5.R
 import com.example.level5.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -15,13 +16,14 @@ class FragmentMain : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     private fun initial() {
-        with(binding) {
-        vpMain.adapter = PagerAdapter(requireParentFragment())
+        binding.apply {
+            vpMain.adapter = PagerAdapter(this@FragmentMain)
             tlMain.tabIconTint = null
-            TabLayoutMediator(tlMain, vpMain) { tab, pos ->
-                when (pos) {
-                    0 -> tab.text = "My Profile"
-                    1 -> tab.text = "My Contacts"
+            TabLayoutMediator(tlMain, vpMain){
+                    tab, pos ->
+                when(pos){
+                    0 -> tab.text = getString(R.string.my_profile)
+                    1 -> tab.text = getString(R.string.my_contacts)
                 }
             }.attach()
         }

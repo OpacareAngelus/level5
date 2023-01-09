@@ -7,6 +7,7 @@ import android.widget.CheckBox
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getDrawable
+import androidx.core.view.isInvisible
 import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.selection.*
 import androidx.recyclerview.widget.ListAdapter
@@ -54,7 +55,8 @@ class RecyclerAdapterUserContacts(
 
     private fun deleteUser(user: User, view: View) {
         contactsListController.onDeleteUser(user)
-        val delMessage = Snackbar.make(view, "${user.name} has been deleted.", Snackbar.LENGTH_LONG)
+        val messageText = String.format(view.context.getString(R.string.has_been_deleted), user.name)
+        val delMessage = Snackbar.make(view, messageText, Snackbar.LENGTH_LONG)
         undoUserDeletion(user, delMessage)
         delMessage.show()
     }
@@ -100,31 +102,29 @@ class RecyclerAdapterUserContacts(
             root: ConstraintLayout,
             cbSelected: CheckBox
         ) {
+            cbSelected.isChecked = tracker?.isSelected(absoluteAdapterPosition.toLong()) == true
+            cbSelected.isInvisible = tracker?.isSelected(absoluteAdapterPosition.toLong()) != true
+            btnTrashCan.isInvisible = tracker?.isSelected(absoluteAdapterPosition.toLong()) != true
+
             if (tracker!!.isSelected(absoluteAdapterPosition.toLong())) {
                 selector.changeVisibility(true)
-                btnTrashCan.visibility = View.INVISIBLE
                 itemContactsRecyclerView.setBackgroundResource(R.drawable.frame_rounding_selected)
                 ivRecyclerItemUserPhoto.foreground = getDrawable(
                     root.context,
                     R.drawable.shaper_color_background_selected
                 )
                 val margin = root.context.resources.getDimension(R.dimen.margin_selection_item)
-                cbSelected.visibility = View.VISIBLE
-                cbSelected.isChecked = true
                 ivRecyclerItemUserPhoto.updateLayoutParams<ConstraintLayout.LayoutParams> {
                     marginStart = margin.toInt()
                 }
                 currentList[absoluteAdapterPosition].isSelected = true
             } else {
-                btnTrashCan.visibility = View.VISIBLE
                 itemContactsRecyclerView.setBackgroundResource(R.drawable.frame_rounded)
                 ivRecyclerItemUserPhoto.foreground = getDrawable(
                     root.context,
                     R.drawable.shaper_color_background
                 )
                 val margin = root.context.resources.getDimension(R.dimen.margin_extra_small)
-                cbSelected.visibility = View.INVISIBLE
-                cbSelected.isChecked = false
                 ivRecyclerItemUserPhoto.updateLayoutParams<ConstraintLayout.LayoutParams> {
                     marginStart = margin.toInt()
                 }

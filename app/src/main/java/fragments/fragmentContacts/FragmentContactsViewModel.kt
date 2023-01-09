@@ -59,4 +59,12 @@ class FragmentContactsViewModel(private val apl: Application) : AndroidViewModel
             )
         }
     }
+
+    fun deleteSelectedUsers(userId: String, accessToken : String) {
+        for (n in userListLiveData.value?.size!! - 1 downTo 0) {
+            if (getUser(n)?.isSelected == true) {
+                requestDeleteContact(userId, getUser(n)?.id.toString() ,accessToken)
+            }
+        }
+    }
 }

@@ -11,6 +11,7 @@
         <entry key="..\:/projects/level5/app/src/main/res/drawable/frame_rounding_color_secondary.xml" value="0.272" />
         <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_add_contact.xml" value="0.199" />
         <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_add_photo.xml" value="0.272" />
+        <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_back_arrow.xml" value="0.203" />
         <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_human.xml" value="0.272" />
         <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_launcher_background.xml" value="0.272" />
         <entry key="..\:/projects/level5/app/src/main/res/drawable/ic_no_photo.xml" value="0.272" />
@@ -21,6 +22,7 @@
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_auth_main.xml" value="0.5505208333333333" />
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_contact_profile.xml" value="0.5567708333333333" />
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_edit_profile.xml" value="0.25" />
+        <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_main.xml" value="0.4059161873459326" />
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_my_profile.xml" value="0.5505208333333333" />
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_sign_up_extended.xml" value="0.25" />
         <entry key="..\:/projects/level5/app/src/main/res/layout-land/fragment_unattached_contact_profile.xml" value="0.33" />

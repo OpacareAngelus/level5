@@ -20,7 +20,6 @@ import com.example.level5.databinding.FragmentUserContactsBinding
 import com.google.android.material.snackbar.Snackbar
 import data.model.User
 import fragments.FragmentMainDirections
-import io.reactivex.disposables.CompositeDisposable
 import util.ContactsListController
 import util.RecyclerAdapterLookUp
 import util.Selector
@@ -49,12 +48,13 @@ class FragmentContacts :
 
         binding.btnDeleteSelectedContacts.apply {
             setOnClickListener {
-                for (n in contactsViewModel.userListLiveData.value?.size!! - 1 downTo 0) {
-                    println(contactsViewModel.getUser(n)?.isSelected)
-                    if (contactsViewModel.getUser(n)?.isSelected == true) {
-                        onDeleteUser(contactsViewModel.getUser(n)!!)
-                    }
-                }
+                contactsViewModel.deleteSelectedUsers(
+                    sharedPreferences.getString(getString(R.string.id), "").toString(),
+                    getString(R.string.token_bearer) + sharedPreferences.getString(
+                        getString(R.string.access_token),
+                        ""
+                    ).toString()
+                )
                 usersAdapter.getTracker()?.clearSelection()
                 visibility = View.INVISIBLE
             }
@@ -93,14 +93,14 @@ class FragmentContacts :
     }
 
     override fun onDeleteUser(user: User) {
-       contactsViewModel.requestDeleteContact(
-           sharedPreferences.getString(getString(R.string.id), "").toString(),
-           (user.id).toString(),
-           getString(R.string.token_bearer) + sharedPreferences.getString(
-               getString(R.string.access_token),
-               ""
-           ).toString()
-       )
+        contactsViewModel.requestDeleteContact(
+            sharedPreferences.getString(getString(R.string.id), "").toString(),
+            (user.id).toString(),
+            getString(R.string.token_bearer) + sharedPreferences.getString(
+                getString(R.string.access_token),
+                ""
+            ).toString()
+        )
     }
 
     override fun onOpenContactProfile(user: User) {
@@ -117,9 +117,9 @@ class FragmentContacts :
     }
 
     private fun setObservers() {
-            contactsViewModel.userListLiveData.observe(viewLifecycleOwner) {
-                usersAdapter.submitList(it.toMutableList())
-            }
+        contactsViewModel.userListLiveData.observe(viewLifecycleOwner) {
+            usersAdapter.submitList(it.toMutableList())
+        }
     }
 
     private var simpleCallback = object : ItemTouchHelper.SimpleCallback(
@@ -137,9 +137,10 @@ class FragmentContacts :
             val user = contactsViewModel.getUser(viewHolder.absoluteAdapterPosition) as User
             when (direction) {
                 ItemTouchHelper.LEFT -> {
+                    val messageText = String.format(getString(R.string.has_been_deleted), user.name)
                     val delMessage = Snackbar.make(
                         viewHolder.itemView,
-                        "${user.name} has been deleted.",
+                        messageText,
                         Snackbar.LENGTH_LONG
                     )
                     onDeleteUser(user)
