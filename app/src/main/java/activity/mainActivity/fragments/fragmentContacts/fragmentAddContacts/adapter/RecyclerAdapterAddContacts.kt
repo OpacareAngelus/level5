@@ -37,8 +37,6 @@ class RecyclerAdapterAddContacts(private val addContactController: FragmentAddCo
                 user.id = position
 
                 containerItem.setOnClickListener {
-                    println(user)
-                    println(user.hashCode())
                     addContactController.onOpenContactProfile(user)
                 }
                 btnAddContact.setOnClickListener {
