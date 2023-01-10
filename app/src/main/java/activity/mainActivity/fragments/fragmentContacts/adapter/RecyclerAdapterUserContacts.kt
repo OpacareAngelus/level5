@@ -37,9 +37,9 @@ class RecyclerAdapterUserContacts(
         return this.tracker
     }
 
-    init {
+/*    init {
         setHasStableIds(true)
-    }
+    }*/
 
     override fun getItemId(position: Int): Long = position.toLong()
 
